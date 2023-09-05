@@ -34,31 +34,31 @@ function ModeToggle() {
     }
   }
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+    <FormControl sx={{ minWidth: 120 }} size="small">
       <InputLabel id="demo-select-small-label">Mode</InputLabel>
       <Select
+        sx={{ fontSize: '0.875rem' }}
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={mode}
         label="Mode"
         onChange={handleChange}
-        size="small"
       >
         <MenuItem value={'light'}>
           <ItemContent>
-            <LightModeIcon />
+            <LightModeIcon fontSize="small" />
             Light
           </ItemContent>
         </MenuItem>
         <MenuItem value={'dark'}>
           <ItemContent>
-            <ModeNightIcon />
+            <ModeNightIcon fontSize="small"  />
             Dark
           </ItemContent>
         </MenuItem>
         <MenuItem value={'system'}>
           <ItemContent>
-            <SettingsBrightnessIcon />
+            <SettingsBrightnessIcon fontSize="small" />
             System
           </ItemContent>
         </MenuItem>

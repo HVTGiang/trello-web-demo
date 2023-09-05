@@ -1,13 +1,22 @@
-import ModeToggle from './components/ModeToggle'
+import Container from '@mui/material/Container'
+import AppBar from '~/components/AppBar'
+import Board from './pages/Board'
 
 function App() {
   return (
-    <>
-      <ModeToggle />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Container
+      disableGutters
+      maxWidth={false}
+      sx={{
+        // backgroundColor: (theme) => theme.palette.text.secondary,
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <AppBar />
+      <Board />
+    </Container>
   )
 }
 
