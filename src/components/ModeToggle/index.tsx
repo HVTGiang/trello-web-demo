@@ -22,19 +22,19 @@ function ModeToggle() {
   const { mode, setMode } = useColorScheme()
   const handleChange = (e: SelectChangeEvent) => {
     switch (e.target.value) {
-      case Mode.light:
-        setMode('light')
-        break
-      case Mode.dark:
-        setMode('dark')
-        break
-      case Mode.system:
-        setMode('system')
-        break
+    case Mode.light:
+      setMode('light')
+      break
+    case Mode.dark:
+      setMode('dark')
+      break
+    case Mode.system:
+      setMode('system')
+      break
     }
   }
   return (
-    <FormControl sx={{ minWidth: 120 }} size="small">
+    <FormControl sx={{ minWidth: '120px' }} size="small">
       <InputLabel id="demo-select-small-label">Mode</InputLabel>
       <Select
         sx={{ fontSize: '0.875rem' }}
@@ -52,7 +52,7 @@ function ModeToggle() {
         </MenuItem>
         <MenuItem value={'dark'}>
           <ItemContent>
-            <ModeNightIcon fontSize="small"  />
+            <ModeNightIcon fontSize="small" />
             Dark
           </ItemContent>
         </MenuItem>

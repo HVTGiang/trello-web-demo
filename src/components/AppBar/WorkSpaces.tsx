@@ -23,6 +23,9 @@ const WorkSpaces = () => {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{
+          display: { xs: 'none', md: 'flex' }
+        }}
       >
         Workspaces
       </Button>

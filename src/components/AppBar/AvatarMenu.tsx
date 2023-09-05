@@ -11,7 +11,7 @@ import Logout from '@mui/icons-material/Logout'
 import ListItemIcon from '@mui/material/ListItemIcon'
 
 const AvatarMenu = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)

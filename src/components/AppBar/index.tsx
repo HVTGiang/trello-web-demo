@@ -26,7 +26,8 @@ const AppBar = () => {
         justifyContent: 'space-between',
         px: 1,
         width: '100%',
-        height: '58px'
+        height: '58px',
+        overflowX: 'auto'
         // backgroundColor: (theme) => theme.palette.primary.main
       }}
     >
@@ -34,7 +35,7 @@ const AppBar = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: 2
+          gap: 1
         }}
       >
         <AppsIcon color="primary" />
@@ -60,7 +61,13 @@ const AppBar = () => {
         <Recent />
         <Starred />
         <Templates />
-        <Button variant="outlined" size="small">
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{
+            display: { xs: 'none', md: 'flex' }
+          }}
+        >
           Create
         </Button>
       </Box>
@@ -76,6 +83,7 @@ const AppBar = () => {
           label="Search..."
           type="search"
           size="small"
+          sx={{ minWidth: '120px' }}
         />
         <ModeToggle />
         <Tooltip title="Notify">
