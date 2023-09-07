@@ -6,7 +6,10 @@ const BoardContent = () => {
       sx={{
         width: '100%',
         flex: 1,
-        backgroundColor: (theme) => theme.palette.primary.light
+        bgcolor: (theme) =>
+          theme.palette.mode === 'dark' ? '#34495e' : '#047BBB',
+        borderTop: '0.5px solid',
+        borderColor: '#ffffff35'
       }}
     >
       Board Content

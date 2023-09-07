@@ -34,10 +34,53 @@ function ModeToggle() {
     }
   }
   return (
-    <FormControl sx={{ minWidth: '120px' }} size="small">
-      <InputLabel id="demo-select-small-label">Mode</InputLabel>
+    <FormControl
+      sx={{
+        minWidth: '120px',
+        '& label': {
+          color: 'white'
+        },
+        '& label.Mui-focused': {
+          color: 'white'
+        },
+        '&:hover label': {
+          color: 'white'
+        },
+        '.MuiOutlinedInput-root': {
+          borderColor: '#ffffff35',
+          '& fieldset': {
+            borderColor: '#ffffff35'
+          },
+          '&:hover fieldset': {
+            borderColor: '#ffffff35'
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#ffffff35',
+            borderWidth: '1px'
+          }
+        },
+        '.MuiSvgIcon-root': {
+          color: 'white'
+        }
+      }}
+      size="small"
+    >
+      <InputLabel
+        id="demo-select-small-label"
+        sx={{
+          color: 'white',
+          '.Mui-focused': {
+            color: 'white'
+          }
+        }}
+      >
+        Mode
+      </InputLabel>
       <Select
-        sx={{ fontSize: '0.875rem' }}
+        sx={{
+          fontSize: '0.875rem',
+          color: 'white'
+        }}
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={mode}

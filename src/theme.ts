@@ -1,22 +1,9 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
-import { deepOrange, cyan, orange } from '@mui/material/colors'
 // A custom theme for this app
 const theme = extendTheme({
   colorSchemes: {
-    light: {
-      palette: {
-        primary: {
-          main: '#007ac1'
-        },
-        secondary: deepOrange
-      }
-    },
-    dark: {
-      palette: {
-        primary: cyan,
-        secondary: orange
-      }
-    }
+    light: {},
+    dark: {}
   },
   components: {
     MuiCssBaseline: {
@@ -39,10 +26,11 @@ const theme = extendTheme({
     },
     MuiButton: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: {
           textTransform: 'none',
-          color: theme.palette.primary.main
-        })
+          fontWeight: 'normal',
+          borderWidth: '1px'
+        }
       }
     },
     MuiInputLabel: {
@@ -57,20 +45,19 @@ const theme = extendTheme({
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ theme }) => {
-          return {
-            borderColor: theme.palette.primary.main,
-            fontSize: '0.875rem',
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.light
-            },
-            '&:hover': {
-              '.MuiOutlinedInput-notchedOutline': {
-                borderColor: theme.palette.primary.light,
-                borderWidth: '2px'
-              }
-            }
-          }
+        root: {
+          borderWidth: '1px',
+          // borderColor: theme.palette.primary.main,
+          fontSize: '0.875rem'
+          // '.MuiOutlinedInput-notchedOutline': {
+          //   borderColor: theme.palette.primary.light
+          // },
+          // '&:hover': {
+          //   '.MuiOutlinedInput-notchedOutline': {
+          //     borderColor: theme.palette.primary.light,
+          //     borderWidth: '2px'
+          //   }
+          // }
         }
       }
     }

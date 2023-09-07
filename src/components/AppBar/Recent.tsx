@@ -24,7 +24,8 @@ const Recent = () => {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
-          display: { xs: 'none', md: 'flex' }
+          display: { xs: 'none', md: 'flex' },
+          color: 'white'
         }}
       >
         Recent
