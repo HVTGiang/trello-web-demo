@@ -22,43 +22,86 @@ function ModeToggle() {
   const { mode, setMode } = useColorScheme()
   const handleChange = (e: SelectChangeEvent) => {
     switch (e.target.value) {
-      case Mode.light:
-        setMode('light')
-        break
-      case Mode.dark:
-        setMode('dark')
-        break
-      case Mode.system:
-        setMode('system')
-        break
+    case Mode.light:
+      setMode('light')
+      break
+    case Mode.dark:
+      setMode('dark')
+      break
+    case Mode.system:
+      setMode('system')
+      break
     }
   }
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small-label">Mode</InputLabel>
+    <FormControl
+      sx={{
+        minWidth: '120px',
+        '& label': {
+          color: 'white'
+        },
+        '& label.Mui-focused': {
+          color: 'white'
+        },
+        '&:hover label': {
+          color: 'white'
+        },
+        '.MuiOutlinedInput-root': {
+          borderColor: '#ffffff35',
+          '& fieldset': {
+            borderColor: '#ffffff35'
+          },
+          '&:hover fieldset': {
+            borderColor: '#ffffff35'
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#ffffff35',
+            borderWidth: '1px'
+          }
+        },
+        '.MuiSvgIcon-root': {
+          color: 'white'
+        }
+      }}
+      size="small"
+    >
+      <InputLabel
+        id="demo-select-small-label"
+        sx={{
+          color: 'white',
+          '.Mui-focused': {
+            color: 'white'
+          }
+        }}
+      >
+        Mode
+      </InputLabel>
       <Select
+        sx={{
+          fontSize: '0.875rem',
+          color: 'white'
+        }}
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={mode}
         label="Mode"
         onChange={handleChange}
-        size="small"
       >
         <MenuItem value={'light'}>
           <ItemContent>
-            <LightModeIcon />
+            <LightModeIcon fontSize="small" />
             Light
           </ItemContent>
         </MenuItem>
         <MenuItem value={'dark'}>
           <ItemContent>
-            <ModeNightIcon />
+            <ModeNightIcon fontSize="small" />
             Dark
           </ItemContent>
         </MenuItem>
         <MenuItem value={'system'}>
           <ItemContent>
-            <SettingsBrightnessIcon />
+            <SettingsBrightnessIcon fontSize="small" />
             System
           </ItemContent>
         </MenuItem>
