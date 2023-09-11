@@ -21,6 +21,9 @@ const theme = extendTheme({
           '*::-webkit-scrollbar-thumb:hover': {
             backgroundColor: '#7f8c8d'
           }
+        },
+        '*': {
+          boxSizing: 'border-box'
         }
       }
     },
