@@ -109,7 +109,8 @@ const BoardHeader = () => {
               fontSize: '0.875rem',
               borderWidth: '1px',
               borderColor: 'white',
-              color: 'white'
+              color: 'white',
+              cursor: 'pointer'
             }
           }}
         >
