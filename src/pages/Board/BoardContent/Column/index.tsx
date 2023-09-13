@@ -15,12 +15,17 @@ import ArchiveIcon from '@mui/icons-material/Archive'
 import AddIcon from '@mui/icons-material/Add'
 import CardItem from '../CardItem'
 import Tooltip from '@mui/material/Tooltip'
+import { IColumn } from '~/types/column'
+import mapOrder from '~/utils/orderArray'
 
 const COLUMN_HEADER_HEIGHT: number = 40
 const COLUMN_FOOTER_HEIGHT: number = 40
 const COLUMN_FOOTER_SPACING: number = 30
 
-const Column = () => {
+const Column = ({ column }: { column: IColumn }) => {
+  const { cards, cardOrderIds } = column
+  const orderCards = mapOrder(cards, cardOrderIds, '_id')
+
   const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -67,7 +72,7 @@ const Column = () => {
           fontSize={'0.875rem'}
           sx={{ cursor: 'pointer' }}
         >
-          Header
+          {column.title}
         </Typography>
         <Button
           id="demo-customized-button"
@@ -142,10 +147,9 @@ const Column = () => {
           gap: 1
         }}
       >
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        {orderCards.map((card) => (
+          <CardItem key={card._id} card={card} />
+        ))}
       </Box>
 
       {/* Card Footer */}

@@ -2,8 +2,12 @@ import Box from '@mui/material/Box'
 import Column from './Column'
 import AddIcon from '@mui/icons-material/Add'
 import Button from '@mui/material/Button'
+import mapOrder from '~/utils/orderArray'
+import { IBoard } from '~/types/board'
 
-const BoardContent = () => {
+const BoardContent = ({ board }: { board: IBoard }) => {
+  const { columns, columnOrderIds } = board
+  const orderedColumns = mapOrder(columns, columnOrderIds, '_id')
   return (
     <Box
       sx={{
@@ -23,6 +27,7 @@ const BoardContent = () => {
       <Box
         sx={{
           display: 'flex',
+          alignItems: 'start',
           overflowX: 'scroll',
           overflowY: 'unset',
           m: '8px 0 8px 0',
@@ -39,9 +44,9 @@ const BoardContent = () => {
           }
         }}
       >
-        <Column />
-        <Column />
-        <Column />
+        {orderedColumns.map((column) => (
+          <Column key={column._id} column={column} />
+        ))}
         <Box maxWidth={'270px'} minWidth={'270px'} height={'fit-content'}>
           <Button
             variant="text"
