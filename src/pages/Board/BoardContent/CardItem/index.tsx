@@ -4,47 +4,69 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import PersonIcon from '@mui/icons-material/Person'
+import AttachmentIcon from '@mui/icons-material/Attachment'
+import { ICard } from '~/types/card'
 
-const CardItem = () => {
+const CardItem = ({ card }: { card: ICard }) => {
+  const shouldShowAction = !!card.memberIds.length || !!card.attachments.length
   return (
-    <Card sx={{ maxWidth: 345, overflow: 'unset', cursor: 'pointer' }}>
-      <CardMedia
-        sx={{ height: 140, overflow: 'hidden', borderRadius: '5px 5px 0 0' }}
-        image="https://th.bing.com/th/id/OIP.PBA5vkcc1cYGAkmviSG4TgHaEE?w=336&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-        title="green iguana"
-      />
+    <Card
+      sx={{
+        maxWidth: 345,
+        overflow: 'unset',
+        cursor: 'pointer'
+      }}
+    >
+      {card.cover && (
+        <CardMedia
+          sx={{ height: 140, overflow: 'hidden', borderRadius: '5px 5px 0 0' }}
+          image={card.cover}
+        />
+      )}
       <CardContent
         sx={{
-          p: 1
+          p: 1,
+          '&:last-child': { p: 1 }
         }}
       >
         <Typography variant="body1" component="div">
-          Title
+          {card.title}
         </Typography>
       </CardContent>
-      <CardActions
-        sx={{
-          p: '0 8px 8px'
-        }}
-      >
-        <Button
-          size="small"
+      {shouldShowAction && (
+        <CardActions
           sx={{
-            p: 0,
-            minWidth: 0
+            p: '0 8px 8px',
+            gap: 1.5
           }}
         >
-          Action 1
-        </Button>
-        <Button
-          size="small"
-          sx={{
-            p: 0
-          }}
-        >
-          Action 2
-        </Button>
-      </CardActions>
+          {!!card.memberIds.length && (
+            <Button
+              size="small"
+              sx={{
+                p: 0,
+                minWidth: 0,
+                alignItems: 'center'
+              }}
+              startIcon={<PersonIcon />}
+            >
+              {card.memberIds.length}
+            </Button>
+          )}
+          {!!card.attachments.length && (
+            <Button
+              size="small"
+              sx={{
+                p: 0
+              }}
+              startIcon={<AttachmentIcon />}
+            >
+              {card.attachments.length}
+            </Button>
+          )}
+        </CardActions>
+      )}
     </Card>
   )
 }

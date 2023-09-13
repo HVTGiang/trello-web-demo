@@ -33,8 +33,8 @@ module.exports = {
 
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
-        "error",
-        { "argsIgnorePattern": "^_" }
+      "error",
+      { "argsIgnorePattern": "^_" }
     ],
 
     // other rules
@@ -56,6 +56,7 @@ module.exports = {
     'keyword-spacing': 1,
     'comma-dangle': 1,
     'comma-spacing': 1,
-    'arrow-spacing': 1
+    'arrow-spacing': 1,
+    'no-explicit-any': 0
   },
 }

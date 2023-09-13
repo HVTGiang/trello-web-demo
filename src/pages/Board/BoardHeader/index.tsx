@@ -10,6 +10,8 @@ import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import { Tooltip } from '@mui/material'
+import { IBoard } from '~/types/board'
+import capitalizeFirstLetter from '~/utils/upperCaseFirstLetter'
 
 const ChipStyle = {
   color: 'white',
@@ -23,7 +25,7 @@ const ChipStyle = {
   }
 }
 
-const BoardHeader = () => {
+const BoardHeader = ({ board }: { board: IBoard }) => {
   return (
     <Box
       sx={{
@@ -48,13 +50,13 @@ const BoardHeader = () => {
       >
         <Chip
           icon={<DashboardIcon />}
-          label="Giang Trello Dashboard"
+          label={board.title}
           sx={ChipStyle}
           clickable
         />
         <Chip
           icon={<VpnLockIcon />}
-          label="Public/Private Workspace"
+          label={capitalizeFirstLetter(board.type)}
           sx={ChipStyle}
           clickable
         />
